@@ -1,0 +1,251 @@
+#include <iostream>
+using namespace std;
+
+class Bangund
+{
+public:
+    float luas, keliling, p, l, sisi, a, t, d, r, d1, d2;
+    void PersegiPanjang()
+    {
+        cout << "masukkan panjang = ";
+        cin >> p;
+        cout << "masukkan luas = ";
+        cin >> l;
+        luas = p * l;
+        keliling = 2 * (p + l);
+        show();
+    }
+    void Persegi()
+    {
+        cout << "masukkan sisi = ";
+        cin >> sisi;
+        luas = sisi * sisi;
+        keliling = 4 * sisi;
+        show();
+    }
+    void Segitiga()
+    {
+        cout << "masukkan alas = ";
+        cin >> a;
+        cout << "masukkan tinggi = ";
+        cin >> t;
+        luas = 0.5 * a * t;
+        keliling = a + a + a;
+        show();
+    }
+    void Lingkaran()
+    {
+        cout << "masukkan diameter = ";
+        cin >> d;
+        r = 0.5 * d;
+        luas = 3.14 * r * r;
+        keliling = 3.14 * d;
+        show();
+    }
+    void BelahKetupat()
+    {
+        cout << "masukkan sisi = ";
+        cin >> sisi;
+        cout << "masukkan diagonal 1 = ";
+        cin >> d1;
+        cout << "masukkan diagonal 2 = ";
+        cin >> d2;
+        luas = 0.5 * d1 * d2;
+        keliling = 4 * sisi;
+        show();
+    }
+    void show()
+    {
+        cout << "================================================" << endl;
+        cout << " Luas bangun datar        = "
+             << luas << endl;
+        cout << " Keliling bangun datar    = "
+             << keliling << endl;
+        cout << "================================================" << endl;
+    }
+};
+class Bangunr
+{
+public:
+    float luasperm, volum, p, l, sisi, t, r;
+    void Kubus()
+    {
+        cout << "masukkan sisi = ";
+        cin >> sisi;
+        luasperm = 6 * (sisi * sisi);
+        volum = sisi * sisi * sisi;
+        tampil();
+    }
+    void Balok()
+    {
+        cout << "masukkan panjang = ";
+        cin >> p;
+        cout << "masukkan lebar = ";
+        cin >> l;
+        cout << "masukkan tinggi = ";
+        cin >> t;
+        luasperm = 2 * (p * l + p * l + l * t);
+        volum = p * l * t;
+        tampil();
+    }
+    void Tabung()
+    {
+        cout << "masukkan jari - jari = ";
+        cin >> r;
+        cout << "masukkan tinggi = ";
+        cin >> t;
+        luasperm = 3.14 * r * r * t;
+        volum = 2 * 3.14 * r * t;
+        tampil();
+    }
+    void Kerucut()
+    {
+        cout << "masukkan jari - jari = ";
+        cin >> r;
+        cout << "masukkan tinggi = ";
+        cin >> t;
+        cout << "masukkan sisi = ";
+        cin >> sisi;
+        luasperm = 0.33 * 3.14 * r * r * t;
+        volum = 3.14 * r * (r + sisi);
+        tampil();
+    }
+    void Bola()
+    {
+        cout << "masukkan jari - jari = ";
+        cin >> r;
+        luasperm = 1.33 * 3.14 * r * r * r;
+        volum = 4 * 3.14 * r * r;
+        tampil();
+    }
+    void tampil()
+    {
+        cout << "================================================" << endl;
+        cout << " Luas permukaan bangun ruang  = "
+             << luasperm << endl;
+        cout << " Volume bangun ruang          = "
+             << volum << endl;
+        cout << "================================================" << endl;
+    }
+};
+
+int main()
+{
+    Bangund hitung[20];
+    Bangunr count[20];
+
+    for (int i = 0; i < 21; i++)
+    {
+        int tanya, pilih;
+        char ask;
+        string opsi[3];
+        cout << "*  *   *   *   *   *   *   *   *   *   *   *   *   *   *   *" << endl;
+        cout << "Selamat Datang di Penghitung Bangun Datar dan Bangun Ruang" << endl;
+        cout << "*  *   *   *   *   *   *   *   *   *   *   *   *   *   *   *" << endl;
+        cout << endl;
+        opsi[0] = "1. Bangun Datar";
+        opsi[1] = "2. Bangun Ruang";
+        opsi[2] = "3. Tidak menghitung";
+        for (int i = 0; i < 3; i++)
+        {
+            cout << opsi[i] << endl;
+        }
+        cout << "Menghitung Luas dan Keliling Bangun Datar atau Bangun Ruang?   ";
+        cin >> pilih;
+        if (pilih == 1)
+        {
+            string datar[6];
+            datar[0] = "1. Persegi panjang";
+            datar[1] = "2. Persegi";
+            datar[2] = "3. Segitiga";
+            datar[3] = "4. Lingkaran";
+            datar[4] = "5. Belah ketupat";
+            datar[5] = "6. Berhenti";
+            for (int i = 0; i < 6; i++)
+            {
+                cout << datar[i] << endl;
+            }
+            cout << "(ketik angkanya saja) = ";
+            cin >> tanya;
+            if (tanya == 1)
+            {
+                hitung[i].PersegiPanjang();
+            }
+            else if (tanya == 2)
+            {
+                hitung[i].Persegi();
+            }
+            else if (tanya == 3)
+            {
+                hitung[i].Segitiga();
+            }
+            else if (tanya == 4)
+            {
+                hitung[i].Lingkaran();
+            }
+            else if (tanya == 5)
+            {
+                hitung[i].BelahKetupat();
+            }
+            else if (tanya == 6)
+            {
+                break;
+            }
+            else
+            {
+                cout << "Warning : Inputan yang Anda masukkan kurang tepat" << endl;
+            }
+            cout << endl;
+        }
+        else if (pilih == 2)
+        {
+            string ruang[6];
+            ruang[0] = "A. Kubus";
+            ruang[1] = "B. Balok";
+            ruang[2] = "C. Tabung";
+            ruang[3] = "D. Kerucut";
+            ruang[4] = "E. Bola";
+            ruang[5] = "F. Berhenti";
+            for (int i = 0; i < 6; i++)
+            {
+                cout << ruang[i] << endl;
+            }
+            cout << "(ketik hurufnya saja) = ";
+            cin >> ask;
+            if (ask == 'A' or ask == 'a')
+            {
+                count[i].Kubus();
+            }
+            else if (ask == 'B' or ask == 'b')
+            {
+                count[i].Balok();
+            }
+            else if (ask == 'C' or ask == 'c')
+            {
+                count[i].Tabung();
+            }
+            else if (ask == 'D' or ask == 'd')
+            {
+                count[i].Kerucut();
+            }
+            else if (ask == 'E' or ask == 'e')
+            {
+                count[i].Bola();
+            }
+            else if (ask == 'F' or ask == 'f')
+            {
+                break;
+            }
+            else
+            {
+                cout << "Warning : Inputan yang Anda masukkan kurang tepat" << endl;
+            }
+            cout << endl;
+        }
+        else
+        {
+            break;
+        }
+    }
+    return 0;
+}
